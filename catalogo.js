@@ -122,7 +122,7 @@ Elige una opción:`
     const titulo = prompt("Título:");
     const genero = prompt("Género:");
     const duracion = Number(
-      prompt("Duración en minutos:")
+      prompt("Duración en minutos, ingresa sólo números:")
     );
 
     agregar(
