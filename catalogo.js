@@ -56,3 +56,19 @@ console.log(
   "Acción:",
   accion.map(pelicula => pelicula.titulo)
 );
+
+//Etapa 5 · Recomendar las no vistas
+const recomendar = () => {
+  return peliculas.filter(
+    pelicula => pelicula.vista === false
+  );
+};
+
+marcarVista("Matrix");
+const pendientes = recomendar();
+console.log(
+  "Te recomendamos:",
+  pendientes.map(
+    pelicula => pelicula.titulo
+  )
+);
