@@ -10,3 +10,16 @@ peliculas.forEach((pelicula, index) => {
     `${index + 1}. ${pelicula.titulo} (${pelicula.genero}, ${pelicula.duracion} min)`
   );
 });
+
+//Etapa 2 · Agregar películas
+const agregar = (titulo, genero, duracion) => {
+  peliculas.push({
+    titulo: titulo,
+    genero: genero,
+    duracion: duracion,
+    vista: false
+  });
+};
+
+agregar("Toy Story", "Animación", 81);
+console.log(`Total de películas: ${peliculas.length}`);
