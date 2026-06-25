@@ -23,3 +23,23 @@ const agregar = (titulo, genero, duracion) => {
 
 agregar("Toy Story", "Animación", 81);
 console.log(`Total de películas: ${peliculas.length}`);
+
+//Etapa 3 · Marcar como vista (find + cambiar estado)
+const marcarVista = (titulo) => {
+
+  const pelicula = peliculas.find(
+    pelicula => pelicula.titulo === titulo
+  );
+
+  if (!pelicula) {
+    console.log(`❌ No existe: ${titulo}`);
+    return;
+  }
+
+  pelicula.vista = true;
+
+  console.log(`✅ Marcada como vista: ${titulo}`);
+};
+
+marcarVista("Matrix");
+marcarVista("Avatar");
