@@ -94,3 +94,165 @@ marcarVista("Inception");
 console.log(
   `Tiempo total visto: ${tiempoTotalVisto()} min`
 );
+
+//🏆 Jefe Final · El menú do/while
+// JEFE FINAL · MENÚ
+
+let opcion;
+
+do {
+
+  opcion = prompt(
+`=== MI CATÁLOGO ===
+
+1) Agregar película
+2) Ver todas
+3) Marcar como vista
+4) Filtrar por género
+5) Recomendar
+6) Tiempo total visto
+7) Salir
+
+Elige una opción:`
+  );
+
+
+  if (opcion === "1") {
+
+    const titulo = prompt("Título:");
+    const genero = prompt("Género:");
+    const duracion = Number(
+      prompt("Duración en minutos:")
+    );
+
+    agregar(
+      titulo,
+      genero,
+      duracion
+    );
+
+    alert("✅ Película agregada");
+
+  }
+
+
+  else if (opcion === "2") {
+
+    let salida = "";
+
+    peliculas.forEach(
+      (pelicula, index) => {
+
+        salida +=
+`${pelicula.vista ? "[✓]" : "[ ]"} ${index + 1}. ${pelicula.titulo}
+(${pelicula.genero}, ${pelicula.duracion} min)
+
+`;
+
+      }
+    );
+
+    alert(salida);
+
+  }
+
+
+  else if (opcion === "3") {
+
+    const titulo =
+      prompt(
+        "Título a marcar:"
+      );
+
+    marcarVista(
+      titulo
+    );
+
+  }
+
+
+  else if (opcion === "4") {
+
+    const genero =
+      prompt(
+        "Género:"
+      );
+
+    const resultado =
+      porGenero(
+        genero
+      );
+
+    if (
+      resultado.length === 0
+    ) {
+
+      alert(
+        "No hay películas de ese género"
+      );
+
+    }
+
+    else {
+
+      alert(
+        resultado
+          .map(
+            pelicula =>
+              pelicula.titulo
+          )
+          .join("\n")
+      );
+
+    }
+
+  }
+
+
+  else if (opcion === "5") {
+
+    const pendientes =
+      recomendar();
+
+    alert(
+      "Te recomendamos:\n\n" +
+      pendientes
+        .map(
+          pelicula =>
+            pelicula.titulo
+        )
+        .join("\n")
+    );
+
+  }
+
+
+  else if (opcion === "6") {
+
+    alert(
+      `Tiempo visto:
+${tiempoTotalVisto()} min`
+    );
+
+  }
+
+
+  else if (
+    opcion !== "7"
+  ) {
+
+    alert(
+      "❌ Opción inválida"
+    );
+
+  }
+
+}
+while (
+  opcion !== "7"
+);
+
+
+alert(
+  "¡Buen maratón! 🍿"
+);
