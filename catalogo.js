@@ -43,3 +43,16 @@ const marcarVista = (titulo) => {
 
 marcarVista("Matrix");
 marcarVista("Avatar");
+
+//Etapa 4 · Filtrar por género
+const porGenero = (genero) => {
+  return peliculas.filter(
+    pelicula => pelicula.genero === genero
+  );
+};
+
+const accion = porGenero("Acción");
+console.log(
+  "Acción:",
+  accion.map(pelicula => pelicula.titulo)
+);
