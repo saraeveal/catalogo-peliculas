@@ -72,3 +72,25 @@ console.log(
     pelicula => pelicula.titulo
   )
 );
+
+//Etapa 6 · Tiempo total visto (filter + reduce) 
+const tiempoTotalVisto = () => {
+
+  const vistas = peliculas.filter(
+    pelicula => pelicula.vista
+  );
+
+  const total = vistas.reduce(
+    (acumulador, pelicula) => {
+      return acumulador + pelicula.duracion;
+    },
+    0
+  );
+
+  return total;
+};
+
+marcarVista("Inception");
+console.log(
+  `Tiempo total visto: ${tiempoTotalVisto()} min`
+);
